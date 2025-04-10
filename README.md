@@ -1,1 +1,2 @@
 # ZeoTecPrueba
+IDE -> IntelliJ

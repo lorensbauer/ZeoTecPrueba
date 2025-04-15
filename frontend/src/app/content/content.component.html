@@ -1,0 +1,24 @@
+<div>
+  <div class="row justify-content-center">
+    <ul class="nav nav-pills nav nav-justified mb-3 col-4" id="ex1" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button [ngClass]="active == 'login' ? 'nav-link active' : 'nav-link'" id="tab-login" (click)="onLoginTab()">
+          Login
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button [ngClass]="active == 'register' ? 'nav-link active' : 'nav-link'" id="tab-register"
+                (click)="onRegisterTab()">
+          Register
+        </button>
+      </li>
+    </ul>
+  </div>
+  <!--  <app-login-form/>-->
+  @if (active == 'login') {
+    <app-login-form/>
+  } @else if (active == 'register') {
+    <app-register/>
+  }
+
+</div>

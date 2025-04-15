@@ -1,0 +1,23 @@
+<div class="row justify-content-center">
+  <div class="col-4">
+    <form (ngSubmit)="onSubmitRegister()" #registerForm="ngForm">
+      <div class="form-outline mb-4">
+        <label class="form-label" for="userName">Usuario: </label>
+        <input class="form-control" type="text" id="userName" name="user" [(ngModel)]="user">
+      </div>
+      <div class="form-outline mb-4">
+        <label class="form-label" for="userPassword">Password: </label>
+        <input class="form-control" type="password" id="userPassword" name="password" [(ngModel)]="userPassword">
+      </div>
+      <div class="form-outline mb-4">
+        <label class="form-label" for="userEdad">Edad: </label>
+        <input class="form-control" type="number" id="userEdad" name="edad" [(ngModel)]="edad">
+      </div>
+      <div class="form-outline mb-4">
+        <label class="form-label" for="userEmail">Email: </label>
+        <input class="form-control" type="email" id="userEmail" name="email" [(ngModel)]="email">
+      </div>
+      <button type="submit" class="btn btn-primary mb-4">Iniciar Sesión</button>
+    </form>
+  </div>
+</div>

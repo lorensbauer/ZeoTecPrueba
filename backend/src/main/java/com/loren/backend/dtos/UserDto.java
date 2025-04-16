@@ -1,4 +1,4 @@
-package com.loren.backend.dto;
+package com.loren.backend.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class UserDto {
     private Long id;
     private String email;
+    private int edad;
     private String login;
     private String token;
 }

@@ -1,19 +1,19 @@
 package com.loren.backend.services;
 
-import com.loren.backend.dto.CredentialsDto;
-import com.loren.backend.dto.UserDto;
+import com.loren.backend.dtos.CredentialsDto;
+import com.loren.backend.dtos.SignUpDto;
+import com.loren.backend.dtos.UserDto;
 import com.loren.backend.entities.User;
 import com.loren.backend.exceptions.AppException;
 import com.loren.backend.mappers.UserMapper;
 import com.loren.backend.repositories.UserRepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.nio.CharBuffer;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -34,5 +34,18 @@ public class UserService {
             return userMapper.toUserDto(user);
         }
         throw new AppException("Invalid password", HttpStatus.BAD_REQUEST);
+    }
+
+    public UserDto register(SignUpDto signUpDto) {
+        Optional<User> oUser = userRepository.findByLogin(signUpDto.login());
+        if (oUser.isPresent()) {
+            throw new AppException("User already exists", HttpStatus.BAD_REQUEST);
+        }
+
+        User user = userMapper.signUpToUser(signUpDto);
+
+        user.setPassword(passwordEncoder.encode(CharBuffer.wrap(signUpDto.password())));
+        User savedUser = userRepository.save(user);
+        return userMapper.toUserDto(savedUser);
     }
 }

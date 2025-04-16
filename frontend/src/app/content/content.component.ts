@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {LoginFormComponent} from '../login-form/login-form.component';
 import {RegisterComponent} from '../register/register.component';
 import {NgClass} from '@angular/common';
-import {AuthContentComponent} from '../auth-content/auth-content.component';
 import {AxiosService} from '../axios.service';
 
 @Component({
@@ -10,8 +9,7 @@ import {AxiosService} from '../axios.service';
   imports: [
     LoginFormComponent,
     RegisterComponent,
-    NgClass,
-    AuthContentComponent
+    NgClass
   ],
   templateUrl: './content.component.html',
   styleUrl: './content.component.css'
@@ -43,6 +41,7 @@ export class ContentComponent {
   }
 
   onRegister(input: any) {
+    console.log("onRegister frontend")
     this.axiosService.request(
       "POST",
       "/register",

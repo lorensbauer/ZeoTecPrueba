@@ -1,6 +1,6 @@
 package com.loren.backend.config;
 
-import com.loren.backend.dto.ErrorDto;
+import com.loren.backend.dtos.ErrorDto;
 import com.loren.backend.exceptions.AppException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

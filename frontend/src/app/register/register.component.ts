@@ -22,8 +22,8 @@ export class RegisterComponent {
 
   onSubmitRegister() {
     this.onSubmitRegisterEvent.emit({
-      "user": this.login,
-      "userPassword": this.password,
+      "login": this.login,
+      "password": this.password,
       "edad": this.edad,
       "email": this.email
     });

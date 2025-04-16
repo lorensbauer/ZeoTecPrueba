@@ -41,4 +41,17 @@ export class ContentComponent {
       }
     );
   }
+
+  onRegister(input: any) {
+    this.axiosService.request(
+      "POST",
+      "/register",
+      {
+        login: input.login,
+        password: input.password,
+        edad: input.edad,
+        email: input.email
+      }
+    );
+  }
 }

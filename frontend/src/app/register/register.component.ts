@@ -13,16 +13,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 export class RegisterComponent {
   @Output() onSubmitRegisterEvent = new EventEmitter();
 
-  user: string = "";
-  userPassword: string = "";
+  login: string = "";
+  password: string = "";
   edad: number = 0;
   email: string = "";
 
 
+
   onSubmitRegister() {
     this.onSubmitRegisterEvent.emit({
-      "user": this.user,
-      "userPassword": this.userPassword,
+      "user": this.login,
+      "userPassword": this.password,
       "edad": this.edad,
       "email": this.email
     });

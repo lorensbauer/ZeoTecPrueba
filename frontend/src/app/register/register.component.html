@@ -2,12 +2,12 @@
   <div class="col-4">
     <form (ngSubmit)="onSubmitRegister()" #registerForm="ngForm">
       <div class="form-outline mb-4">
-        <label class="form-label" for="userName">Usuario: </label>
-        <input class="form-control" type="text" id="userName" name="user" [(ngModel)]="user">
+        <label class="form-label" for="loginName">Usuario: </label>
+        <input class="form-control" type="text" id="loginName" name="login" [(ngModel)]="login">
       </div>
       <div class="form-outline mb-4">
         <label class="form-label" for="userPassword">Password: </label>
-        <input class="form-control" type="password" id="userPassword" name="password" [(ngModel)]="userPassword">
+        <input class="form-control" type="password" id="userPassword" name="password" [(ngModel)]="password">
       </div>
       <div class="form-outline mb-4">
         <label class="form-label" for="userEdad">Edad: </label>

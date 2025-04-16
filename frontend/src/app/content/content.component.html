@@ -18,8 +18,7 @@
   @if (active == 'login') {
     <app-login-form (onSubmitLoginEvent)="onLogin($event)"/>
   } @else if (active == 'register') {
-    <app-register/>
+    <app-register (onSubmitRegisterEvent)="onRegister($event"/>
   }
 
-  <app-auth-content/>
 </div>

@@ -1,9 +1,12 @@
 import {Component} from '@angular/core';
 import {AxiosService} from '../axios.service';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-auth-content',
-  imports: [],
+  imports: [
+    NgForOf
+  ],
   templateUrl: './auth-content.component.html',
   styleUrl: './auth-content.component.css'
 })

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {LoginFormComponent} from '../login-form/login-form.component';
 import {RegisterComponent} from '../register/register.component';
 import {NgClass} from '@angular/common';
 import {AuthContentComponent} from '../auth-content/auth-content.component';
+import {AxiosService} from '../axios.service';
 
 @Component({
   selector: 'app-content',
@@ -16,6 +17,10 @@ import {AuthContentComponent} from '../auth-content/auth-content.component';
   styleUrl: './content.component.css'
 })
 export class ContentComponent {
+
+  constructor(private axiosService: AxiosService) {
+  }
+
   active: string = "login";
 
   onLoginTab() {
@@ -24,5 +29,16 @@ export class ContentComponent {
 
   onRegisterTab() {
     this.active = "register";
+  }
+
+  onLogin(input: any) {
+    this.axiosService.request(
+      "POST",
+      "/login",
+      {
+        login: input.login,
+        password: input.password
+      }
+    );
   }
 }

@@ -1,5 +1,6 @@
 package com.loren.backend.controllers;
 
+import com.loren.backend.config.UserAuthProvider;
 import com.loren.backend.dtos.CredentialsDto;
 import com.loren.backend.dtos.SignUpDto;
 import com.loren.backend.dtos.UserDto;
@@ -17,11 +18,13 @@ import java.net.URI;
 public class AuthController {
 
     private final UserService userService;
+    private final UserAuthProvider userAuthProvider;
 
     @PostMapping("/login")
     public ResponseEntity<UserDto> login(@RequestBody CredentialsDto credentialsDto) {
         System.out.println("login backend" +credentialsDto);
         UserDto user = userService.login(credentialsDto);
+        user.setToken(userAuthProvider.createToken(user));
         return ResponseEntity.ok(user);
     }
 
@@ -30,6 +33,7 @@ public class AuthController {
 
         System.out.println("register backend"+signUpDto);
         UserDto user = userService.register(signUpDto);
+        user.setToken(userAuthProvider.createToken(user));
         return ResponseEntity.created(URI.create("/users/" + user.getId())).body(user);
     }
 }

@@ -24,7 +24,7 @@ public class User {
     @Column(name = "edad", nullable = false)
     private int edad;
 
-    @Column(name = "nombre", nullable = false)
+    @Column(name = "login", nullable = false)
     private String login;
 
     @Column(nullable = false)

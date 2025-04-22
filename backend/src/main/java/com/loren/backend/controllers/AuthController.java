@@ -24,7 +24,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<UserDto> login(@RequestBody CredentialsDto credentialsDto) {
-        //System.out.println("login backend" +credentialsDto);
+        System.out.println("login backend" +credentialsDto);
         UserDto user = userService.login(credentialsDto);
         user.setToken(userAuthProvider.createToken(user));
         return ResponseEntity.ok(user);
@@ -32,8 +32,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(@RequestBody SignUpDto signUpDto) {
-
-        //System.out.println("register backend"+signUpDto);
+        System.out.println("register backend"+signUpDto);
         UserDto user = userService.register(signUpDto);
         user.setToken(userAuthProvider.createToken(user));
         return ResponseEntity.created(URI.create("/users/" + user.getId())).body(user);

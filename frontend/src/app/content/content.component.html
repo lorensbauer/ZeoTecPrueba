@@ -12,13 +12,22 @@
           Register
         </button>
       </li>
+      <li class="nav-item" role="presentation" *ngIf="isLogged()">
+        <button [ngClass]="active == 'user-list' ? 'nav-link active' : 'nav-link'" id="tab-list"
+                (click)="onListTab()">
+          Lista de usuarios
+        </button>
+      </li>
     </ul>
   </div>
   <!--  <app-login-form/>-->
-  @if (active == 'login') {
-    <app-login-form (onSubmitLoginEvent)="onLogin($event)"/>
-  } @else if (active == 'register') {
-    <app-register (onSubmitRegisterEvent)="onRegister($event)"/>
-  }
+<!--  @if (active == 'login') {-->
+<!--    <app-login-form (onSubmitLoginEvent)="onLogin($event)"/>-->
+<!--  } @else if (active == 'register') {-->
+<!--    <app-register (onSubmitRegisterEvent)="onRegister($event)"/>-->
+<!--  }-->
+  <app-login-form *ngIf="active == 'login'" (onSubmitLoginEvent)="onLogin($event)"/>
+  <app-register *ngIf="active == 'register'" (onSubmitRegisterEvent)="onRegister($event)"/>
+  <app-user-list *ngIf="active == 'user-list'" [users]="users" />
 
 </div>

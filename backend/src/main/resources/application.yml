@@ -10,5 +10,9 @@ spring:
       ddl-auto: 'create-drop'
 app:
   storage:
-    #type: persistent
-    type: in-memory
+    type: persistent
+    #type: in-memory
+
+
+
+

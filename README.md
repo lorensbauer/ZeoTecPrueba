@@ -10,4 +10,18 @@ Para iniciar el contenedor con la base de datos:
 ```
 docker run -d -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_USER=backend -e POSTGRES_PASSWORD=backend -e POSTGRES_DB=backenddb -p 5432:5432 postgres:13
 ```
+Para elegir si queremos que los usuarios se guarden de manera persistente o no debemos editar el fichero **application.yml** de la carpeta recursos:
 
+Si queremos que se guarde en bbdd:
+```
+app:
+  storage:
+    type: persistent
+```
+
+Si queremos que se guarde en memoria:
+```
+app:
+  storage:
+    type: in-memory
+```
